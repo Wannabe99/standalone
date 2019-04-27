@@ -1,8 +1,8 @@
 <?php
 require_once dirname(__FILE__).'/../api/shared/main.php';
 
-function brand($script) {
-    $projVersion = '1.0.0';
+function brand($script = null) {
+    $projVersion = '1.0.1';
     return 'UUP dump standalone v'.$projVersion;
 }
 

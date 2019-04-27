@@ -1,12 +1,14 @@
 <?php
 $updateId = isset($argv[1]) ? $argv[1] : null;
-$file = isset($argv[2]) ? $argv[2] : null;
+$file = isset($argv[2]) ? strtolower($argv[2]) : null;
 
 if(empty($updateId)) die('Unspecified update id');
 if(empty($file)) die('Unspecified file');
 
+require_once dirname(__FILE__).'/shared/main.php';
 require_once dirname(__FILE__).'/api/get.php';
 
+consoleLogger(brand());
 $files = uupGetFiles($updateId, 0, 0);
 if(isset($files['error'])) {
     throwError($files['error']);
